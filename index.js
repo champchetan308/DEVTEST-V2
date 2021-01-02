@@ -49,7 +49,7 @@ app.get('/', (req, res) =>{
 //method after stopping the container
 app.get('/stop',(req,res) => {
 
-  cp.execSync("docker stop `docker ps -q`", (error, stdout, stderr) => {
+  cp.execSync("docker stop $(docker ps -q)", (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
       return ;   
